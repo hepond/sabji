@@ -1,0 +1,16 @@
+<h2>All Vegetables</h2>
+<ul class="vegs">
+  <li *ngFor="let veg of vegs"
+  [class.selected]="veg === selectedVeg"
+  (click)="onSelect(veg)">
+    <span class="badge">{{veg.id}}</span> {{veg.name}}
+  </li>
+</ul>
+<div *ngIf="selectedVeg">
+  <h2>{{selectedVeg.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedVeg.id}}</div>
+  <div>
+    <label for="veg-name">Vegetable name: </label>
+    <input id="veg-name" [(ngModel)]="selectedVeg.name" placeholder="name">
+  </div>
+</div>
